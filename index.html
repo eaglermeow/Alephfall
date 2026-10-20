@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alephfall Library</title>
+<meta name="description" content="Alephfall Library">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="cosmos" aria-hidden="true">
+  <div class="stars"></div>
+  <i class="meteor m1"></i>
+  <i class="meteor m2"></i>
+  <i class="meteor m3"></i>
+  <i class="meteor m4"></i>
+  <i class="meteor m5"></i>
+  <i class="meteor m6"></i>
+</div>
+
+<nav class="nav glass">
+  <a class="brand" id="brand" href="#top"></a>
+  <div class="nav-links" id="navLinks"></div>
+  <a class="btn sm solid" href="#access">Early access</a>
+</nav>
+
+<header class="hero" id="top">
+  <div class="eyebrow" id="eyebrow"></div>
+  <h1 id="title"></h1>
+  <p class="lead" id="lead"></p>
+  <div class="cta">
+    <a class="btn solid" href="#access">Enter early access</a>
+    <a class="btn" href="#library">Explore library</a>
+  </div>
+</header>
+
+<section id="library">
+  <div class="wrap">
+    <h2>Everything you build with.</h2>
+    <p class="sub">Browse by type, grab what you need, keep moving.</p>
+    <div class="grid" id="libraryGrid"></div>
+  </div>
+</section>
+
+<section id="drops">
+  <div class="wrap">
+    <h2>Latest drops.</h2>
+    <p class="sub">What just landed in the archive.</p>
+    <div class="drops" id="dropsList"></div>
+  </div>
+</section>
+
+<section id="access">
+  <div class="wrap center">
+    <h2>Have an invite code?</h2>
+    <p class="sub">Enter it to step through.</p>
+    <div class="gate glass" id="gate">
+      <label for="code">Early access code</label>
+      <div class="row">
+        <input id="code" type="text" placeholder="ENTER CODE" autocomplete="off" spellcheck="false" maxlength="40">
+        <button class="btn solid" id="enter" type="button">Enter</button>
+      </div>
+      <div class="msg" id="msg">Invited testers only.</div>
+    </div>
+  </div>
+</section>
+
+<footer id="footer"></footer>
+<div class="warp" id="warp"></div>
+
+<script src="js/config.js"></script>
+<script src="js/embed.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+import{Ci as e,Di as t,Dr as n,Ei as r,In as i,Jn as a,Ti as o,Zi as s,fi as c,jn as l,kr as u,yr as d}from"./index-B4QD0Fte.js";var f={Normal:1e3,ProtocolError:1002,InternalError:1011,TryAgainLater:1013,BadRequest:4e3,Unauthorized:4001,Forbidden:4002,Banned:4003,GameNotFound:4004,GameClosed:4005,LobbyFull:4006,WrongWorker:4007,GameStarted:4008,RankedLimitReached:4100,InvalidClan:4101,ClanVerificationFailed:4102,NotTrusted:4103};function p(e){return e===f.Normal||e===f.ProtocolError||e>=4e3&&e<=4999}var m={InvalidMessage:`close_reason.invalid_message`,InvalidToken:`close_reason.invalid_token`,Banned:`close_reason.banned`,TurnstileFailed:`close_reason.turnstile_failed`,LoginRequired:`close_reason.login_required`,AccountLookupFailed:`close_reason.account_lookup_failed`,Forbidden:`close_reason.forbidden`,CosmeticsForbidden:`close_reason.cosmetics_forbidden`,GameNotFound:`close_reason.game_not_found`,CannotJoin:`close_reason.cannot_join`,NotAllowlisted:`close_reason.not_allowlisted`,NotTrusted:`close_reason.not_trusted`,LobbyFull:`close_reason.lobby_full`,WrongWorker:`close_reason.wrong_worker`,InternalError:`close_reason.internal_error`,ProtocolError:`close_reason.protocol_error`,NoHeartbeat:`close_reason.no_heartbeat`,GameEnded:`close_reason.game_ended`,GameStarted:`close_reason.game_started`,RankedLimitReached:`close_reason.ranked_limit_reached`,InvalidClan:`close_reason.invalid_clan`,ClanVerificationFailed:`close_reason.clan_verification_failed`,PoolRedirect:`close_reason.pool_redirect`,Unknown:`close_reason.unknown`},h=new Set(Object.values(m));function g(e){return h.has(e)}function _(e){let t=new s;t.mapping(c);for(let n of e)t.assign(c,n.clientID);return t}function v(e,t){return u.parseBytes(e,t)}function y(e,t){return d.serialize(e,t)}function b(e){return n.parseBytes(e)}function x(e,t,n){return`${e.replace(/^wss?:\/\//,``).split(`?`)[0]} closed (${t.code===1006?`1006, no close frame`:String(t.code)})${t.reason?` "${t.reason}"`:``} ${n===null?`before it opened`:`after ${((Date.now()-n)/1e3).toFixed(1)}s open`}${navigator.onLine===!1?`, browser offline`:``}`}var S=`rounded bg-malibu-blue px-1.5 py-0.5 text-[11px] font-bold tracking-widest text-white`,C={City:`unit_type.city`,Port:`unit_type.port`,"Defense Post":`unit_type.defense_post`,"SAM Launcher":`unit_type.sam_launcher`,"Missile Silo":`unit_type.missile_silo`,Warship:`unit_type.warship`,Factory:`unit_type.factory`,"Atom Bomb":`unit_type.atom_bomb`,"Hydrogen Bomb":`unit_type.hydrogen_bomb`,MIRV:`unit_type.mirv`,"Trade Ship":`player_stats_table.unit.trade`,Transport:`player_stats_table.unit.trans`,"MIRV Warhead":`player_stats_table.unit.mirvw`},w=e=>`${parseFloat((e/1e6).toPrecision(12))}M`;function T(n,a){let s=n.gameMode===r.Team,c=i(`common.enabled`),u=i(`common.disabled`),d=n.publicGameModifiers,f=[];d?.isCrowded&&f.push({label:i(`host_modal.crowded`),value:c}),(d?.isHardNations||n.gameType===t.Private&&n.difficulty!==e.Easy)&&f.push({label:i(`difficulty.difficulty`),value:i(`difficulty.${n.difficulty.toLowerCase()}`)}),n.infiniteTroops&&f.push({label:i(`game_settings.infinite_troops`),value:c}),n.infiniteGold&&f.push({label:i(`game_settings.infinite_gold`),value:c}),n.instantBuild&&f.push({label:i(`game_settings.instant_build`),value:c}),n.randomSpawn&&f.push({label:i(`game_settings.random_spawn`),value:c}),n.maxTimerValue&&f.push({label:i(`private_lobby.game_length`),value:l(n.maxTimerValue*60)}),n.spawnImmunityDuration&&Math.round(n.spawnImmunityDuration/10)!==5&&f.push({label:i(`private_lobby.pvp_immunity`),value:l(Math.round(n.spawnImmunityDuration/10))}),n.startingGold&&f.push({label:i(`private_lobby.starting_gold`),value:w(n.startingGold)}),n.goldMultiplier&&f.push({label:i(`game_settings.gold_multiplier`),value:`x${n.goldMultiplier}`}),n.customAllianceDuration===0||n.disableAlliances?f.push({label:i(`public_game_modifier.disable_alliances_label`),value:u}):typeof n.customAllianceDuration==`number`&&n.customAllianceDuration!==5&&f.push({label:i(`public_game_modifier.disable_alliances_label`),value:l(n.customAllianceDuration*60)}),n.waterNukes&&f.push({label:i(`game_settings.water_nukes`),value:c}),n.doomsdayClock?.enabled&&f.push({label:i(`game_settings.doomsday_clock`),value:i(`doomsday_clock_speed.${n.doomsdayClock.speed??`normal`}`)}),n.overtime?.enabled&&f.push({label:i(`overtime.title`),value:l((n.overtime.startMinutes??30)*60)}),n.anonymizeNames&&f.push({label:i(`host_modal.anonymous_players`),value:c}),(s&&!n.donateGold||!s&&n.donateGold)&&f.push({label:i(`host_modal.donate_gold`),value:n.donateGold?c:u}),(s&&!n.donateTroops||!s&&n.donateTroops)&&f.push({label:i(`host_modal.donate_troops`),value:n.donateTroops?c:u});let p=n.gameMapSize===o.Compact||n.publicGameModifiers?.isCompact;p&&f.push({label:i(`game_settings.compact_map`),value:c});{let e=p?100:400;n.bots!==e&&f.push({label:i(`game_settings.bots`),value:String(n.bots)})}if(a!==null){let e=p?Math.max(0,Math.floor(a*.25)):a;typeof n.nations==`number`&&n.nations!==e&&f.push({label:i(`game_settings.nations`),value:String(n.nations)})}return n.nations===`disabled`&&!(n.gameType===t.Public&&s)&&f.push({label:i(`game_settings.nations`),value:u}),f}function E(e){let t=e.label.replace(/[:\uFF1A\s]+$/u,``);return e.value===i(`common.enabled`)?t:`${t}: ${e.value}`}function D(e,t){return e.disabledUnits?.length?a`
+    <div
+      data-disabled-units
+      class="${t} p-3 bg-red-500/10 border border-red-500/20 rounded-lg"
+    >
+      <div
+        class="text-xs font-bold text-red-400 uppercase tracking-widest mb-2"
+      >
+        ${i(`private_lobby.disabled_units`)}
+      </div>
+      <div class="flex flex-wrap gap-2">
+        ${e.disabledUnits.map(e=>{let t=C[e];return a`<span
+            class="px-2 py-1 bg-red-500/20 text-red-200 text-xs rounded font-bold border border-red-500/30"
+            >${t?i(t):e}</span
+          >`})}
+      </div>
+    </div>
+  `:null}function O(e,t){let n=e.hostCheats;if(!n)return null;let r=[];return n.infiniteGold&&r.push(i(`game_settings.infinite_gold`)),n.infiniteTroops&&r.push(i(`game_settings.infinite_troops`)),n.goldMultiplier&&r.push(`${i(`game_settings.gold_multiplier`)}: x${n.goldMultiplier}`),n.startingGold&&r.push(`${i(`private_lobby.starting_gold`)}: ${w(n.startingGold)}`),r.length===0?null:a`
+    <div
+      data-host-cheats
+      class="${t} p-3 bg-yellow-500/10 border border-yellow-500/20 rounded-lg"
+    >
+      <div
+        class="text-xs font-bold text-yellow-400 uppercase tracking-widest mb-2"
+      >
+        ${i(`private_lobby.host_cheats`)}
+      </div>
+      <div class="flex flex-wrap gap-2">
+        ${r.map(e=>a`<span
+              class="px-2 py-1 bg-yellow-500/20 text-yellow-200 text-xs rounded font-bold border border-yellow-500/30"
+              >${e}</span
+            >`)}
+      </div>
+    </div>
+  `}export{T as a,b as c,f as d,m as f,E as i,v as l,p as m,D as n,x as o,g as p,O as r,_ as s,S as t,y as u};

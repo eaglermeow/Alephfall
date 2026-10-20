@@ -1,0 +1,8 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>OpenFront</title>
+<script>
+  var base = null;
+  try { base = localStorage.getItem("openfront.staticBase"); } catch (e) {}
+  location.replace(base || "/");
+</script>
